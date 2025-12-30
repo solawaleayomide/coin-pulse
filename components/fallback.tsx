@@ -1,6 +1,11 @@
 import React from "react";
 import { DataTable } from "@/components/data-table";
 
+/**
+ * Render a skeleton UI for the coin overview section shown while data is loading.
+ *
+ * @returns A JSX element containing header avatar and text placeholders, a period button skeleton, and a chart skeleton styled with pulsing loading classes.
+ */
 export function CoinOverviewFallback() {
   return (
     <div id="coin-overview-fallback">
@@ -71,6 +76,13 @@ const skeletonColumns: DataTableColumn<TrendingCoin>[] = [
   },
 ];
 
+/**
+ * Render a skeleton placeholder for the trending coins section.
+ *
+ * Displays a "Trending Coins" heading and a DataTable filled with placeholder rows and columns to indicate loading state.
+ *
+ * @returns The JSX element containing the trending coins skeleton table
+ */
 export function TrendingCoinsFallback() {
   return (
     <div id="trending-coins-fallback">

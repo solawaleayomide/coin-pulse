@@ -6,6 +6,13 @@ import {
   TrendingCoinsFallback,
 } from "@/components/fallback";
 
+/**
+ * Render the home page layout with Suspense-wrapped coin overview and trending sections.
+ *
+ * @returns The root JSX element for the home page containing:
+ * - A grid section with `CoinOverview` and `TrendingCoins` components each wrapped in `Suspense` and paired with their fallbacks.
+ * - A secondary section with a "Categories" header.
+ */
 export default async function HomePage() {
   return (
     <main className="main-container">

@@ -1,10 +1,10 @@
-import { fetcher } from '@/lib/coingecko.actions';
-import { formatCurrency } from '@/lib/utils';
-import Image from 'next/image';
+import { fetcher } from "@/lib/coingecko.actions";
+import { formatCurrency } from "@/lib/utils";
+import Image from "next/image";
 
 export async function CoinOverview() {
-  const coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {
-    dex_pair_symbol: 'symbol',
+  const coin = await fetcher<CoinDetailsData>("/coins/bitcoin", {
+    dex_pair_format: "symbol",
   });
   return (
     <div id="coin-overview">

@@ -79,7 +79,7 @@ export function TrendingCoinsFallback() {
         <DataTable
           data={skeletonData}
           columns={skeletonColumns}
-          rowKey={(r, i) => r.item.id ?? i}
+          rowKey={(r, i) => r.item.id || String(i)}
         />
       </div>
     </div>

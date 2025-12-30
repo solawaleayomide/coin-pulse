@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description: 'Crypto Screener with built-in High-Frequency Terminal & Dashboard',
 };
 
+/**
+ * Provides the application's root HTML structure, applies global fonts and styles, renders the header, and hosts page content.
+ *
+ * @param children - The content to render inside the document body (page or route content).
+ * @returns The root HTML element containing the document body with global typography, the header, and the supplied `children`.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

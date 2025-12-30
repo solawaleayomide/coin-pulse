@@ -5,6 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+/**
+ * Renders the site header with logo and primary navigation.
+ *
+ * Highlights the active navigation link based on the current pathname.
+ *
+ * @returns The header element containing the logo and navigation; the active link is highlighted according to the current path.
+ */
 export function Header() {
   const pathName = usePathname();
 

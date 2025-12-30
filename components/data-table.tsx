@@ -8,6 +8,20 @@ import {
 } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 
+/**
+ * Render a configurable table for arbitrary row data using the provided column definitions.
+ *
+ * @param columns - Column definitions; each item must provide a `header` node and a `cell` renderer `(row, rowIndex) => ReactNode`
+ * @param data - Array of row items to render
+ * @param rowKey - Function that returns a unique key for a row given `(row, rowIndex)`
+ * @param tableClassName - Additional class names applied to the root Table element
+ * @param headerRowClassName - Additional class names applied to the header row
+ * @param headerCellClassName - Additional class names applied to each header cell
+ * @param bodyRowClassName - Additional class names applied to each body row
+ * @param bodyCellClassName - Additional class names applied to each body cell
+ * @param headerClassName - Additional class names applied to the TableHeader element
+ * @returns The rendered Table element populated with the provided columns and data
+ */
 export function DataTable<T>({
   columns,
   data,

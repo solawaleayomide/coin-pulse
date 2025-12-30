@@ -86,7 +86,11 @@ const columns: DataTableColumn<TrendingCoin>[] = [
 //       },
 //     },
 //   },
-// ];
+/**
+ * Fetches current trending coin data and renders a table showing each coin's name, 24h change, and price.
+ *
+ * @returns A JSX element containing a heading and a DataTable of up to six trending coins.
+ */
 
 export async function TrendingCoins() {
   const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(

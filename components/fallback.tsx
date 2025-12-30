@@ -1,6 +1,11 @@
 import React from "react";
 import { DataTable } from "@/components/data-table";
 
+/**
+ * Render a skeleton placeholder for a coin overview while data is loading.
+ *
+ * @returns A JSX element containing a header avatar and text lines, a period selector skeleton, and a chart skeleton.
+ */
 export function CoinOverviewFallback() {
   return (
     <div id="coin-overview-fallback">
@@ -71,6 +76,11 @@ const skeletonColumns: DataTableColumn<TrendingCoin>[] = [
   },
 ];
 
+/**
+ * Render a skeleton UI for the "Trending Coins" table used while data is loading.
+ *
+ * @returns A JSX element containing a heading and a data table populated with skeleton rows and columns.
+ */
 export function TrendingCoinsFallback() {
   return (
     <div id="trending-coins-fallback">

@@ -86,7 +86,15 @@ const columns: DataTableColumn<TrendingCoin>[] = [
 //       },
 //     },
 //   },
-// ];
+/**
+ * Render a table showing up to six currently trending cryptocurrencies.
+ *
+ * Fetches trending coin data and displays each coin's name (link + image), 24-hour change (with directional icon and color), and current price in a DataTable.
+ *
+ * @returns A React element containing the trending coins table limited to six entries
+ *
+ * @public
+ */
 
 export async function TrendingCoins() {
   const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(

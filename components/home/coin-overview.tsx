@@ -2,6 +2,11 @@ import { fetcher } from "@/lib/coingecko.actions";
 import { formatCurrency } from "@/lib/utils";
 import Image from "next/image";
 
+/**
+ * Render a coin overview card for Bitcoin showing its image, name with symbol, and current USD price.
+ *
+ * @returns A JSX element containing an overview card for Bitcoin with the coin image, the name and symbol, and the formatted USD price.
+ */
 export async function CoinOverview() {
   const coin = await fetcher<CoinDetailsData>("/coins/bitcoin", {
     dex_pair_format: "symbol",

@@ -5,6 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+/**
+ * Render the site header with the logo and navigation links.
+ *
+ * Navigation links receive the `is-active` class when their href matches the current path.
+ *
+ * @returns The header element containing the logo link and navigation; navigation links include `is-active` when their href matches the current path.
+ */
 export function Header() {
   const pathName = usePathname();
 

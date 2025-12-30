@@ -6,6 +6,15 @@ import {
   TrendingCoinsFallback,
 } from "@/components/fallback";
 
+/**
+ * Render the homepage layout with live coin data and a Categories section.
+ *
+ * The main content includes a grid that lazily renders CoinOverview and TrendingCoins
+ * inside Suspense boundaries with respective fallback components, followed by a
+ * separate section labeled "Categories".
+ *
+ * @returns The page's root JSX element: a <main> containing the coin overview and trending coins grid with fallbacks, and a Categories section below.
+ */
 export default async function HomePage() {
   return (
     <main className="main-container">

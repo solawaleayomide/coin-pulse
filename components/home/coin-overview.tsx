@@ -31,8 +31,8 @@ export async function CoinOverview() {
       <CandleStickChart
         data={coinOHLCData}
         coinId="bitcoin"
-        liveInterval="1s"
-        setLiveInterval={() => {}}
+        // liveInterval="1s"
+        // setLiveInterval={() => {}}
       >
         <div className="header pt-2">
           <Image

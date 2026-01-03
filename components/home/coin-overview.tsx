@@ -4,6 +4,13 @@ import Image from "next/image";
 import { formatCurrency } from "@/lib/utils";
 import { CandleStickChart } from "../candle-stick-chart";
 
+/**
+ * Render the Bitcoin overview by fetching coin details and OHLC price data, then displaying the current price and a candlestick chart.
+ *
+ * If data fetching fails, the component renders a fallback UI.
+ *
+ * @returns A JSX element containing the coin overview (coin image, name/symbol, current USD price) wrapped with a candlestick chart; the fallback UI is returned on fetch error.
+ */
 export async function CoinOverview() {
   let data: [CoinDetailsData, OHLCData[]] | null = null;
 

@@ -16,6 +16,18 @@ import {
 } from "lightweight-charts";
 import { useEffect, useRef, useState, useTransition } from "react";
 
+/**
+ * Renders an interactive candlestick chart with period controls and dynamic OHLC data loading.
+ *
+ * Displays a candlestick chart for the given `coinId`, initializes with `data` (if provided), and lets the user switch periods which triggers fetching and rendering of new OHLC data. The chart resizes with its container and fits visible content when new data is applied.
+ *
+ * @param data - Optional initial OHLC data to populate the chart
+ * @param coinId - Coin identifier used to fetch OHLC data when the period changes
+ * @param children - Elements rendered in the chart header (left side)
+ * @param height - Chart height in pixels (default: 360)
+ * @param initialPeriod - Starting period for the chart (default: "daily")
+ * @returns The chart UI as a React element
+ */
 export function CandleStickChart({
   data,
   coinId,

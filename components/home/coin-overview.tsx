@@ -5,14 +5,14 @@ import { formatCurrency } from "@/lib/utils";
 import { CandleStickChart } from "../candle-stick-chart";
 
 export async function CoinOverview() {
-  let data: [CoinDetailsData, OHLCData] | null = null;
+  let data: [CoinDetailsData, OHLCData[]] | null = null;
 
   try {
     data = await Promise.all([
       fetcher<CoinDetailsData>("/coins/bitcoin", {
         dex_pair_format: "symbol",
       }),
-      fetcher<OHLCData>("/coins/bitcoin/ohlc", {
+      fetcher<OHLCData[]>("/coins/bitcoin/ohlc", {
         vs_currency: "usd",
         days: "1",
         // interval: "hourly",
@@ -28,7 +28,12 @@ export async function CoinOverview() {
 
   return (
     <div id="coin-overview">
-      <CandleStickChart data={coinOHLCData} coinId="bitcoin">
+      <CandleStickChart
+        data={coinOHLCData}
+        coinId="bitcoin"
+        liveInterval="1s"
+        setLiveInterval={() => {}}
+      >
         <div className="header pt-2">
           <Image
             src={coin.image.large}

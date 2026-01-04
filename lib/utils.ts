@@ -69,6 +69,12 @@ export function timeAgo(date: string | number | Date): string {
   return past.toISOString().split("T")[0];
 }
 
+/**
+ * Convert an array of OHLC tuples into chart-ready objects with time expressed in seconds and consecutive duplicate timestamps removed.
+ *
+ * @param data - Array of OHLC tuples where each tuple is [timestampMs, open, high, low, close]; `timestampMs` is milliseconds since epoch
+ * @returns An array of objects `{ time: Time, open, high, low, close }` where `time` is seconds since epoch and consecutive entries with the same `time` are omitted
+ */
 export function convertOHLCData(data: OHLCData[]) {
   return data
     .map((d) => ({
@@ -84,6 +90,17 @@ export function convertOHLCData(data: OHLCData[]) {
 }
 
 export const ELLIPSIS = "ellipsis" as const;
+/**
+ * Generate a pagination sequence of page numbers with ellipsis placeholders.
+ *
+ * The sequence always includes the first page and, when totalPages > 1, the last page.
+ * It includes the current page and one adjacent page on each side, inserting
+ * an ellipsis token where ranges are omitted.
+ *
+ * @param currentPage - The currently active page (1-based index; should be between 1 and `totalPages`)
+ * @param totalPages - Total number of pages
+ * @returns An array containing page numbers and the `ELLIPSIS` placeholder string where ranges are collapsed
+ */
 export function buildPageNumbers(currentPage: number, totalPages: number) {
   const pages: (number | string)[] = [];
   const sidePages = 1; // Number of pages to show on each side of current

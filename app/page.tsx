@@ -7,6 +7,15 @@ import {
 } from "@/components/fallback";
 import { Categories } from "@/components/home/categories";
 
+/**
+ * Render the homepage layout with Suspense-wrapped sections for coin overview, trending coins, and categories.
+ *
+ * The component arranges two primary cards (coin overview and trending coins) in a grid and a full-width categories
+ * section below. Each section is deferred behind a React Suspense boundary that displays a corresponding fallback while
+ * the content is resolving.
+ *
+ * @returns The root JSX element for the homepage, containing Suspense fallbacks and their primary components.
+ */
 export default async function HomePage() {
   return (
     <main className="main-container">

@@ -6,6 +6,15 @@ import { TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * Render the coins listing page showing a paginated table of cryptocurrency market data.
+ *
+ * Fetches market data for the current page and displays it in a DataTable with rank, token,
+ * price, 24h change, and market cap columns, and includes pagination controls.
+ *
+ * @param searchParams - Query parameters object; uses `page` (optional) to determine the current page.
+ * @returns A React element that renders the coins listing and pagination controls.
+ */
 export default async function CoinsPage({ searchParams }: NextPageProps) {
   const resolvedParams = await searchParams;
   const pageParam = resolvedParams?.page;

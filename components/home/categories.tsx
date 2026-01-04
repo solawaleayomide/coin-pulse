@@ -4,6 +4,11 @@ import Image from "next/image";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Renders a "Top Categories" section with a table of cryptocurrency categories, each showing the category name, top‑3 coin images, 24h change with a trend icon, market cap, and 24h volume.
+ *
+ * @returns The React element containing the heading and a DataTable populated with up to 10 categories.
+ */
 export async function Categories() {
   const categories = await fetcher<Category[]>("/coins/categories");
 

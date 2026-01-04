@@ -4,6 +4,11 @@ import Image from "next/image";
 import { formatCurrency } from "@/lib/utils";
 import { CandleStickChart } from "../candle-stick-chart";
 
+/**
+ * Render an overview section for Bitcoin including its current USD price and a candlestick chart.
+ *
+ * @returns A React element containing the coin overview UI: an image, name/symbol, formatted current USD price, and a CandleStickChart populated with fetched OHLC data. On fetch failure, this component renders `CoinOverviewFallback`.
+ */
 export async function CoinOverview() {
   let data: [CoinDetailsData, OHLCData[]] | null = null;
 

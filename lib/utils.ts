@@ -84,39 +84,35 @@ export function convertOHLCData(data: OHLCData[]) {
 }
 
 export const ELLIPSIS = "ellipsis" as const;
-export const buildPageNumbers = (
-  currentPage: number,
-  totalPages: number
-): (number | typeof ELLIPSIS)[] => {
-  const MAX_VISIBLE_PAGES = 5;
+export function buildPageNumbers(currentPage: number, totalPages: number) {
+  const pages: (number | string)[] = [];
+  const sidePages = 1; // Number of pages to show on each side of current
 
-  const pages: (number | typeof ELLIPSIS)[] = [];
+  if (totalPages <= 1) return [1];
 
-  if (totalPages <= MAX_VISIBLE_PAGES) {
-    for (let i = 1; i <= totalPages; i += 1) {
-      pages.push(i);
-    }
-    return pages;
-  }
-
+  // Always include first page
   pages.push(1);
 
-  const start = Math.max(2, currentPage - 1);
-  const end = Math.min(totalPages - 1, currentPage + 1);
-
-  if (start > 2) {
+  if (currentPage > sidePages + 2) {
     pages.push(ELLIPSIS);
   }
 
-  for (let i = start; i <= end; i += 1) {
+  // Calculate mid-range
+  const start = Math.max(2, currentPage - sidePages);
+  const end = Math.min(totalPages - 1, currentPage + sidePages);
+
+  for (let i = start; i <= end; i++) {
     pages.push(i);
   }
 
-  if (end < totalPages - 1) {
+  if (currentPage < totalPages - (sidePages + 1)) {
     pages.push(ELLIPSIS);
   }
 
-  pages.push(totalPages);
+  // Always include last page
+  if (totalPages > 1) {
+    pages.push(totalPages);
+  }
 
   return pages;
-};
+}

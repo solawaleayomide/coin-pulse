@@ -12,12 +12,16 @@ export async function CoinOverview() {
       fetcher<CoinDetailsData>("/coins/bitcoin", {
         dex_pair_format: "symbol",
       }),
-      fetcher<OHLCData[]>("/coins/bitcoin/ohlc", {
-        vs_currency: "usd",
-        days: "1",
-        // interval: "hourly",
-        precision: "full",
-      }),
+      fetcher<OHLCData[]>(
+        "/coins/bitcoin/ohlc",
+        {
+          vs_currency: "usd",
+          days: "1",
+          // interval: "hourly",
+          precision: "full",
+        },
+        300
+      ),
     ]);
   } catch (error) {
     console.error("Error fetching coin data:", error);

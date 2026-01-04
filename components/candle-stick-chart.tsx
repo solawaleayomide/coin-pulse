@@ -102,7 +102,7 @@ export function CandleStickChart({
       <div id="chart-header">
         <div className="flex-1">{children}</div>
 
-        <div className="button-group pb-4">
+        <div className=" pb-4">
           <span className="text-sm mx-2 font-medium text-group-100/50">
             Period:
           </span>

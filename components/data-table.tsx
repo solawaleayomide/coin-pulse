@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 
 export function DataTable<T>({
   columns,
@@ -20,15 +20,16 @@ export function DataTable<T>({
   headerClassName,
 }: DataTableProps<T>) {
   return (
-    <Table className={cn('custom-scrollbar', tableClassName)}>
+    <Table className={cn("custom-scrollbar", tableClassName)}>
       <TableHeader className={headerClassName}>
-        <TableRow className={cn('hover:bg-transparent!', headerRowClassName)}>
+        <TableRow className={cn("hover:bg-transparent!", headerRowClassName)}>
           {columns.map((column, colIndex) => (
             <TableHead
               key={colIndex}
               className={cn(
-                'bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5',
+                "bg-dark-400 text-purple-100 py-4 first:pl-8 last:pr-8",
                 headerCellClassName,
+                column.headClassName
               )}
             >
               {column.header}
@@ -42,14 +43,18 @@ export function DataTable<T>({
           <TableRow
             key={rowKey(row, rowIndex)}
             className={cn(
-              'overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative',
-              bodyRowClassName,
+              "overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative",
+              bodyRowClassName
             )}
           >
             {columns.map((column, colIndex) => (
               <TableCell
                 key={colIndex}
-                className={cn('py-4 first:pl-5 last:pr-5', bodyCellClassName)}
+                className={cn(
+                  "py-4 first:pl-8 last:pr-8",
+                  bodyCellClassName,
+                  column.cellClassName
+                )}
               >
                 {column.cell(row, rowIndex)}
               </TableCell>

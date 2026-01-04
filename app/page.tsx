@@ -5,6 +5,7 @@ import {
   CoinOverviewFallback,
   TrendingCoinsFallback,
 } from "@/components/fallback";
+import { Categories } from "@/components/home/categories";
 
 export default async function HomePage() {
   return (
@@ -19,7 +20,13 @@ export default async function HomePage() {
       </section>
 
       <section className="w-full mt-7 space-y-4">
-        <p>Categories</p>
+        <Suspense
+          fallback={
+            <div className="categories-fallback">Loading Categories...</div>
+          }
+        >
+          <Categories />
+        </Suspense>
       </section>
     </main>
   );

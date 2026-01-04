@@ -17,14 +17,20 @@ export async function Categories() {
     },
     {
       header: "Top Gainers",
-      cellClassName: " top-gainers-cell",
+      cellClassName: "top-gainers-cell",
       cell: (category) => {
         const coins = category.top_3_coins;
 
         return (
           <>
             {coins.map((coin) => (
-              <Image src={coin} alt={coin} key={coin} width={28} height={28} />
+              <Image
+                src={coin}
+                alt="coin logo"
+                key={coin}
+                width={28}
+                height={28}
+              />
             ))}
           </>
         );

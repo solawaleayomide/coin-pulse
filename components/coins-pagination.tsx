@@ -30,6 +30,7 @@ const CoinsPagination = ({
       <PaginationContent className="pagination-content">
         <PaginationItem className="pagination-control prev">
           <PaginationPrevious
+            aria-label="Go to previous page"
             onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
             className={
               currentPage === 1 ? "control-disabled" : "control-button"
@@ -58,6 +59,7 @@ const CoinsPagination = ({
 
         <PaginationItem className="pagination-control next">
           <PaginationNext
+            aria-label="Go to next page"
             onClick={() => !isLastPage && handlePageChange(currentPage + 1)}
             className={isLastPage ? "control-disabled" : "control-button"}
           />

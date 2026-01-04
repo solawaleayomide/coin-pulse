@@ -46,7 +46,7 @@ export default async function CoinsPage({ searchParams }: NextPageProps) {
       ),
     },
     {
-      header: " Price",
+      header: "Price",
       cellClassName: "price-cell",
       cell: (coin) => <>${coin.current_price.toLocaleString()}</>,
     },
@@ -85,7 +85,7 @@ export default async function CoinsPage({ searchParams }: NextPageProps) {
 
   const hasMorePages = coinsData.length === perPage;
 
-  const estimattedTotalPages =
+  const estimatedTotalPages =
     currentPage >= 100 ? Math.ceil(currentPage / 100) * 100 + 100 : 100;
 
   return (
@@ -102,7 +102,7 @@ export default async function CoinsPage({ searchParams }: NextPageProps) {
 
         <CoinsPagination
           currentPage={currentPage}
-          totalPages={estimattedTotalPages}
+          totalPages={estimatedTotalPages}
           hasMorePages={hasMorePages}
         />
       </div>
